@@ -1,0 +1,49 @@
+---
+title: "Diamond Analysis Project"
+author: "Anita Durg"
+date: '2022-06-30'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Using R packages
+
+
+```{r setting up environment}
+library(tidyverse)
+```
+
+## Step 2: Viewing data
+
+```{r diamonds dataset}
+head(diamonds)
+str(diamonds)
+glimpse(diamonds)
+colnames(diamonds)
+```
+
+## Step 3: Cleaning data
+
+```{r cleaning data}
+rename(diamonds, carat_new = carat)
+rename(diamonds, carat_new = carat, cut_new = cut)
+summarize(diamonds,mean_carat = mean(carat))
+sort(unique(diamonds$carat),decreasing=TRUE)
+table(diamonds$cut)
+```
+
+## Step 4: Visualizing Data
+
+You can also embed plots, for example:
+
+```{r data visualization}
+ggplot(data = diamonds, aes(x = carat, y = price, color = cut)) +
+  geom_point()
+ggplot(data = diamonds, aes(x = carat, y = price, color = cut)) +
+  geom_point() +
+  facet_wrap(~cut)
+```
+
